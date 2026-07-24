@@ -1,0 +1,63 @@
+# DHL eCommerce TR – Modern Gönderi Takip
+
+DHL eCommerce Türkiye şube paneli ([onlinesube.dhlecommerce.com.tr](https://onlinesube.dhlecommerce.com.tr/TakipEt/GonderiTakip)) **Gönderi Takip** sayfasını modern, okunaklı bir kart görünümüne çeviren Chrome uzantısı.
+
+Giriş yaptıktan sonra sizi otomatik olarak Gönderi Takip sayfasına götürür, son 10 günün gönderilerini listeler ve her gönderi için önemli bilgileri sade bir tabloda gösterir.
+
+## Özellikler
+
+- **Modern kart görünümü** – Alıcı avatarı, renkli durum rozetleri, temiz düzen.
+- **Ödeme sütunu** – Her gönderi için *Alıcı Ödemeli* / *Gönderici Ödemeli* bilgisi (gönderi detayından otomatik çekilir).
+- **Kopyalanabilir takip kodu** – Gönderi no'su büyük ve renkli; üstüne tıklayınca panoya kopyalanır.
+- **Gönderi + Teslim tarihi** – Tarih sütununda hem gönderi hem teslim tarihi birlikte.
+- **Akıllı sıralama** – En yeni gönderi en üstte; bugünden ileri tarihli (ön kayıt) gönderiler en sona iner. Tarih başlığına tıklayarak sırayı tersine çevirebilirsiniz.
+- **Tüm kayıtlar** – Tablo sayfalı olsa bile (10/sayfa) tüm gönderileri okur; en yeni gönderiler gizli kalmaz.
+- **Alıcı adıyla arama** ve istediğinizde **eski görünüm / tarih filtresi**ne geçiş.
+
+## Kurulum (Paketlenmemiş yükle)
+
+Chrome, mağaza dışı uzantıları yalnızca "paketlenmemiş" olarak yükler. Adımlar:
+
+1. Bu depoyu indirin:
+   - **Code → Download ZIP** ile indirip bilgisayarınızda bir klasöre çıkarın,
+   - veya en son sürümü **Releases** bölümünden indirip çıkarın.
+2. Chrome'da adres çubuğuna `chrome://extensions` yazıp girin.
+3. Sağ üstten **Geliştirici modu**'nu (Developer mode) açın.
+4. **Paketlenmemiş öğe yükle** (Load unpacked) düğmesine tıklayın.
+5. Az önce çıkardığınız **klasörü seçin** (içinde `manifest.json` olan klasör).
+6. DHL şube paneline giriş yapın — uzantı otomatik çalışır.
+
+> Not: Uzantı yalnızca `onlinesube.dhlecommerce.com.tr` adresinde çalışır; başka sitelere erişmez.
+
+## Güncelleme
+
+Yeni bir sürüm çıktığında:
+
+1. Yeni ZIP'i indirip klasörün üzerine yazın (aynı klasöre çıkarın).
+2. `chrome://extensions` sayfasında uzantının **Yeniden Yükle** (↻) düğmesine basın.
+3. Gönderi Takip sayfasını yenileyin.
+
+## Dosya yapısı
+
+| Dosya | Görevi |
+|------|--------|
+| `manifest.json` | Uzantı tanımı (Manifest V3). |
+| `redirect.js` | Girişten sonra otomatik olarak Gönderi Takip sayfasına yönlendirir. |
+| `content.js` | Modern arayüzü çizer, verileri okur, ödeme tipini çeker, sıralar. |
+
+## Sorun giderme
+
+- **Modern görünüm gelmedi:** Sayfayı yenileyin. İlk açılışta veriler yüklenene kadar birkaç saniye sürebilir.
+- **Anasayfaya takılmak istiyorum:** Adresin sonuna `#kal` ekleyin (örn. `https://onlinesube.dhlecommerce.com.tr/#kal`) — otomatik yönlendirme yapılmaz.
+- **Ödeme rozetleri geç doldu:** Her satır için ayrı bir istek yapıldığından rozetler 1–2 saniye sonra görünür (sonuçlar önbelleğe alınır).
+
+## Sürüm geçmişi
+
+- **2.7** – Sayfalama düzeltmesi: tüm kayıtlar okunur, bugünkü gönderiler de listelenir.
+- **2.6** – Tarih sütununa gönderi tarihi eklendi; başlığa tıklayınca sıralama tersine çevrilir.
+- **2.5** – İleri tarihli gönderiler en üste çıkmaz.
+- **2.4** – Ödeme sütunu (alıcı/gönderici ödemeli) + kopyalanabilir takip kodu + son 10 gönderi.
+
+---
+
+*Bu uzantı resmî bir DHL ürünü değildir; kişisel kullanım için hazırlanmış bir arayüz iyileştirmesidir.*

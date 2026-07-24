@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "DHL eCommerce TR - Modern Gönderi Takip",
+  "version": "2.7",
+  "description": "Giriş sonrası otomatik Gönderi Takip sayfasını açar, son 10 gönderiyi listeler, ödeme tipini (alıcı/gönderici ödemeli) gösterir ve modern arayüz sunar.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://onlinesube.dhlecommerce.com.tr/*"
+      ],
+      "js": [
+        "redirect.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://onlinesube.dhlecommerce.com.tr/TakipEt/GonderiTakip*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
